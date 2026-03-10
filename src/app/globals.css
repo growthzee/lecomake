@@ -2,6 +2,19 @@
 @import "tailwindcss";
 
 @theme {
+  /* BlackRock Corporate Palette */
+  --color-brand-black: #000000;
+  --color-brand-blue: #0066cc;
+  --color-brand-border: #e5e5e5;
+  --color-brand-gray: #1a1a1a;
+  --color-brand-bg: #f4f4f4;
+
+  /* Typography */
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  /* Custom Container Widths */
+  --breakpoint-3xl: 1920px;
+
   --animate-counter-fade: counter-fade 0.8s ease-out forwards;
 
   @keyframes counter-fade {
@@ -13,5 +26,11 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-white text-brand-black antialiased font-sans;
   }
 }

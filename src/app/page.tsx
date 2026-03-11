@@ -4,13 +4,13 @@ import ServiceGrid from "@/components/ServiceGrid";
 import Link from "next/link";
 import { Suspense } from "react";
 import StatCounter from "@/components/StatCounter";
+import BlogSection from "@/components/BlogSection";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
       <Navbar />
       <Hero />
-      <ServiceGrid />
 
       {/* BlackRock-style Stats Section */}
       <section className="bg-white border-y border-brand-border py-20 px-6">
@@ -26,12 +26,14 @@ export default function Home() {
           </Suspense>
         </div>
       </section>
-
+      <ServiceGrid />
+      {/* Blog Section */}
+      <BlogSection />
       {/* Institutional Footer */}
       <footer className="bg-black text-white py-12 px-6">
         <div className="max-w-7xl mx-auto border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between text-xs text-gray-500 uppercase tracking-widest">
           <div className="mb-4 md:mb-0">
-            © 2024 Lecomake Pvt Ltd. All Rights Reserved.
+            © 2026 Lecomake Pvt Ltd. All Rights Reserved.
           </div>
           <div className="flex gap-6">
             <Link href="#">Privacy Policy</Link>

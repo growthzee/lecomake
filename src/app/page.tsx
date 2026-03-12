@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import StatCounter from "@/components/StatCounter";
 import BlogSection from "@/components/BlogSection";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -45,19 +46,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Institutional Footer */}
-      <footer className="bg-black text-white py-12 px-6">
-        <div className="max-w-7xl mx-auto border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between text-xs text-gray-500 uppercase tracking-widest">
-          <div className="mb-4 md:mb-0">
-            © 2026 Lecomake Pvt Ltd. All Rights Reserved.
-          </div>
-          <div className="flex gap-6">
-            <Link href="#">Privacy Policy</Link>
-            <Link href="#">Terms of Use</Link>
-            <Link href="#">Cookie Settings</Link>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }

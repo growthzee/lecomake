@@ -11,24 +11,40 @@ export default function Home() {
     <main className="min-h-screen bg-white">
       <Navbar />
       <Hero />
-
+      <ServiceGrid />
       {/* BlackRock-style Stats Section */}
-      <section className="bg-white border-y border-brand-border py-20 px-6">
+
+      <section className="bg-white py-24 px-6 border-b border-brand-border">
         <div className="max-w-7xl mx-auto">
-          <Suspense
-            fallback={<div className="h-32 bg-gray-50 animate-pulse" />}
-          >
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-              <StatCounter target={250} label="Projects Delivered" suffix="+" />
-              <StatCounter target={98} label="Client Satisfaction" suffix="%" />
-              <StatCounter target={15} label="Global Markets" />
-            </div>
-          </Suspense>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border-r border-brand-border">
+            <StatCounter
+              target={7.8}
+              label="Assets Optimized"
+              suffix="T"
+              subtext="Total managed volume 2026"
+            />
+            <StatCounter
+              target={15}
+              label="Global Jurisdictions"
+              suffix="+"
+              subtext="Active market presence"
+            />
+            <StatCounter
+              target={98}
+              label="Success Probability"
+              suffix="%"
+              subtext="Risk-adjusted performance"
+            />
+            <StatCounter
+              target={500}
+              label="Digital Frameworks"
+              suffix="+"
+              subtext="Proprietary IT deployments"
+            />
+          </div>
         </div>
       </section>
-      <ServiceGrid />
-      {/* Blog Section */}
-      <BlogSection />
+
       {/* Institutional Footer */}
       <footer className="bg-black text-white py-12 px-6">
         <div className="max-w-7xl mx-auto border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between text-xs text-gray-500 uppercase tracking-widest">

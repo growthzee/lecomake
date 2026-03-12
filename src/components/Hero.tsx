@@ -1,102 +1,89 @@
 // src/components/Hero.tsx
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative w-full border-b border-brand-border bg-brand-black text-white py-24 md:py-32 px-6 overflow-hidden min-h-[80vh] flex items-center">
-      {/* Background subtle noise texture */}
-      <div className="absolute inset-0 opacity-[0.03] bg-[url('/noise.webp')] pointer-events-none" />
+    <section className="relative w-full border-b border-brand-border bg-brand-black text-white py-32 md:py-48 px-6 overflow-hidden min-h-screen flex items-center justify-center text-center">
+      {/* --- BACKGROUND GRAPHICS --- */}
 
-      {/* Main Container: Using grid with 2 columns on lg screens */}
-      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center relative z-10">
-        {/* Left Content */}
-        <div className="flex flex-col justify-center">
-          <span className="text-brand-blue uppercase text-xs font-bold tracking-[0.25em] mb-5 block">
+      {/* 1. Centered Radial Gradient for Depth */}
+      <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,_var(--color-brand-blue)_0%,_transparent_65%)] opacity-10" />
+
+      {/* 2. Full-screen SVG Grid */}
+      <div className="absolute inset-0 z-0 opacity-15">
+        <svg className="h-full w-full" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern
+              id="centeredGrid"
+              width="60"
+              height="60"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M 60 0 L 0 0 0 60"
+                fill="none"
+                stroke="white"
+                strokeWidth="0.5"
+                strokeOpacity="0.3"
+              />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#centeredGrid)" />
+        </svg>
+      </div>
+
+      {/* 3. Floating Geometric Accents (The "Modern Institutional" feel) */}
+      <div className="absolute top-1/4 left-10 w-24 h-24 border border-white/5 rounded-full animate-pulse" />
+      <div className="absolute bottom-1/4 right-10 w-32 h-32 border border-brand-blue/20 rounded-sm rotate-45" />
+
+      {/* --- CENTERED CONTENT --- */}
+
+      <div className="max-w-5xl mx-auto relative z-10 flex flex-col items-center">
+        {/* Top Tagline */}
+        <div className="inline-flex items-center gap-3 mb-8 px-4 py-1 border border-white/10 rounded-full bg-white/5 backdrop-blur-sm">
+          <span className="w-2 h-2 rounded-full bg-brand-blue animate-pulse" />
+          <span className="text-brand-blue uppercase text-[10px] font-bold tracking-[0.4em]">
             Institutional Business Transformation
           </span>
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-light leading-[1.05] tracking-tight mb-8">
-            Global Strategy. <br />
-            <span className="font-bold">Sustainable Results.</span>
-          </h1>
-          <p className="text-xl text-gray-400 mb-12 max-w-xl leading-relaxed">
-            Lecomake empowers global enterprises with the collective
-            intelligence and advanced technology required for resilient growth.
-            We turn shared beliefs into extraordinary action.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 items-center sm:items-start">
-            <button className="bg-brand-blue text-white px-10 py-4 font-bold hover:bg-blue-700 transition-all text-sm uppercase tracking-wider w-full sm:w-auto">
-              Explore Our Solutions
-            </button>
-            <Link
-              href="#"
-              className="flex items-center gap-2 px-6 py-4 font-bold text-sm uppercase tracking-wider group text-white"
-            >
-              Watch Insight Video
-              <span className="group-hover:translate-x-1 transition-transform">
-                →
-              </span>
-            </Link>
-          </div>
         </div>
 
-        {/* Right Graphical Visual - Now forced side-by-side on LG */}
-        <div className="relative hidden lg:block w-full h-[500px] [perspective:1500px]">
-          {/* Main Background Visualization */}
-          <div className="absolute inset-0 opacity-20 flex items-center justify-center">
-            {/* If you don't have the image yet, this div acts as a placeholder so the cards have a home */}
-            <div className="w-full h-full border border-white/5 rounded-full blur-3xl bg-brand-blue/10" />
-            <Image
-              src="/hero-data-visualization.png"
-              alt="Network Intelligence Visualization"
-              fill
-              className="object-contain"
-              priority
-            />
-          </div>
+        {/* Main Title: Massive Scale */}
+        <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-light leading-[0.9] tracking-tighter mb-10">
+          Global Strategy. <br />
+          <span className="font-bold bg-clip-text text-transparent bg-linear-to-b from-white to-gray-500">
+            Sustainable Results.
+          </span>
+        </h1>
 
-          {/* Layered UI Elements */}
+        {/* Subtext: Centered and Balanced */}
+        <p className="text-xl md:text-2xl text-gray-400 leading-relaxed font-light max-w-3xl mb-12">
+          Lecomake empowers global enterprises with collective intelligence and
+          the technical framework required for resilient growth. We turn shared
+          beliefs into extraordinary action.
+        </p>
 
-          {/* Card 1: Asset Performance (Top Left) */}
-          <div className="absolute top-10 -left-10 w-64 p-5 bg-brand-black/80 border border-white/10 backdrop-blur-xl rounded-sm [transform:rotateY(-15deg)_rotateX(5deg)] shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-20">
-            <div className="text-[10px] text-gray-500 uppercase tracking-[0.2em] mb-2 font-bold">
-              Portfolio Risk
-            </div>
-            <div className="flex items-end gap-2">
-              <span className="text-4xl font-bold tabular-nums">
-                0.12<span className="text-xl">%</span>
-              </span>
-              <span className="text-xs text-green-400 font-bold mb-2">
-                ▼ Low
-              </span>
-            </div>
-            <div className="mt-4 h-[2px] w-full bg-white/10 overflow-hidden">
-              <div className="h-full bg-brand-blue w-[12%]" />
-            </div>
-          </div>
-
-          {/* Card 2: Global Reach Map (Bottom Right) */}
-          <div className="absolute bottom-10 -right-4 w-72 p-6 bg-brand-gray/90 border border-brand-blue/20 backdrop-blur-xl rounded-sm [transform:rotateY(10deg)] shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-10">
-            <div className="flex justify-between items-center mb-6">
-              <div className="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-bold">
-                Active Markets
-              </div>
-              <div className="w-2 h-2 rounded-full bg-brand-blue animate-pulse" />
-            </div>
-            <div className="h-24 w-full bg-white/5 mb-4 rounded flex items-center justify-center border border-white/5">
-              <span className="text-gray-600 text-[10px] tracking-widest uppercase">
-                Data Stream Active
-              </span>
-            </div>
-            <div className="text-2xl font-bold tracking-tight">
-              15+ Jurisdictions
-            </div>
-          </div>
-
-          {/* Decorative Corner Borders */}
-          <div className="absolute top-0 right-0 w-24 h-24 border-t border-r border-white/10" />
-          <div className="absolute bottom-0 left-0 w-24 h-24 border-b border-l border-white/10" />
+        {/* Action Buttons */}
+        <div className="flex flex-col sm:flex-row gap-6 items-center justify-center">
+          <button className="bg-brand-blue text-white px-12 py-5 font-bold hover:bg-blue-700 transition-all text-xs uppercase tracking-widest min-w-[220px]">
+            Our Solutions
+          </button>
+          <Link
+            href="#"
+            className="flex items-center gap-3 px-10 py-5 font-bold text-xs uppercase tracking-widest group text-white border border-white/10 hover:bg-white/5 transition-all min-w-[220px] justify-center"
+          >
+            Watch Insight Video
+            <span className="group-hover:translate-x-1 transition-transform">
+              →
+            </span>
+          </Link>
         </div>
+      </div>
+
+      {/* Static Footer Element for the Hero */}
+      <div className="absolute bottom-12 left-0 w-full flex justify-between px-12 text-[10px] font-bold text-gray-600 uppercase tracking-[0.3em] hidden md:flex">
+        <span>Risk Mgmt / 2026</span>
+        <span className="text-brand-blue">Active Markets: 15+</span>
+        <span>Global IT Solutions</span>
       </div>
     </section>
   );
